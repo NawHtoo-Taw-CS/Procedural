@@ -1,38 +1,45 @@
 //global variables go to the very top
 
-int circleX = 240;
-int circleY = 240;
+float circleX = 365;
+float circleY = 240;
 int circleDir = 3;
-
-boolean right = true;
+float circleDirY = 5;
+int player1Y;
+int player2Y;
 
 int scoreleft = 0;
 int scoreright = 0;
 
 void setup() {
-  size(500, 500);
+  size(750, 500);
 }
 
 void draw() {
-  fill(255);
-  
   background(0);
   textSize(25);
-  text(scoreleft,width/10,height/10);
-  text(scoreright,width*1/1.16,height/10);
+  text(scoreleft, width/10, height/10);
+  text(scoreright, width*1/1.16, height/10);
+
+  ellipse(circleX, circleY, width*1/25, width*1/25);
+  rect(50,player1Y,10,50);
   
-  ellipse(circleX, circleY, width*1/12, width*1/12);
   circleX=circleX+circleDir;
-  if (circleX>width+10) {
-    circleX=240;
+  circleY=circleY+circleDirY;
+
+  if (circleX>width+25) {
+    circleX=365;
     circleDir=-circleDir;
     scoreleft=scoreleft+1;
-    
   } 
-  if (circleX<-10){
-    circleX=240;
+  if (circleX<-25) {
+    circleX=365;
     circleDir=-circleDir;
     scoreright=scoreright+1;
-  } 
-  
+  }
+  if (circleY>height-20) {
+    circleDirY=-circleDirY;
+  }
+  if (circleY<height-490) {
+    circleDirY=-circleDirY;
+  }
 }
