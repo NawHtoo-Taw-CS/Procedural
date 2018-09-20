@@ -6,6 +6,7 @@ int circleDir = 3;
 float circleDirY = 5;
 int player1Y;
 int player2Y;
+boolean w = false;
 
 int scoreleft = 0;
 int scoreright = 0;
@@ -43,3 +44,11 @@ void draw() {
     circleDirY=-circleDirY;
   }
 }
+void keyPressed(){
+ if (key = w ) {
+ 
+ }
+}
+ void keyReleased() {
+ if (key
+ }
