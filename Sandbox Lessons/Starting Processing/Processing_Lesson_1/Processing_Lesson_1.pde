@@ -8,7 +8,6 @@ float player1Y = 240;
 float player1X = 5;
 float player2Y = 240;
 float player2X = 735;
-boolean player1Xs = false;
 
 int scoreleft = 0;
 int scoreright = 0;
@@ -52,35 +51,39 @@ void draw() {
   if (circleY<height-490) {
     circleDirY=-circleDirY;
   }
+
   if (circleY>player1Y && circleY<player1Y+100) {
     if (circleX<player1X+25) {
+      circleDir=-circleDir;
+    }
+  }
+
+  if (circleY>player2Y && circleY<player2Y+100) {
+    if (circleX>player2X-15) {
       circleDir=-circleDir;
     }
   }
 }
 void keyPressed() {
   if (key == CODED) {
-    if (key == UP) {
-      player2YMove = -2;
-    }
-    if (key == DOWN) {
-      player2YMove = +2;
+    if (keyCode == UP) {
+      player2YMove = -6;
+    } else if (keyCode == DOWN) {
+      player2YMove = +6;
     }
   }
   if (key == 'w' || key == 'W' ) {
-    player1YMove = -2;
+    player1YMove = -6;
   }
   if (key == 's' || key == 'S' ) {
-    player1YMove = +2;
+    player1YMove = +6;
   }
 }
 void keyReleased() {
   if (key == CODED) {
-
-    if (key == UP) {
+    if (keyCode == UP) {
       player2YMove = 0;
-    }
-    if (key == DOWN) {
+    } else if (keyCode == DOWN) {
       player2YMove = 0;
     }
   }
