@@ -17,6 +17,12 @@ int player2YMove;
 
 void setup() {
   size(750, 500);
+  scoreleft = 0;
+  scoreright = 0;
+  circleX = 365;
+  circleY = 240;
+  player1Y = 240;
+  player2Y = 240;
 }
 
 void draw() {
@@ -34,6 +40,19 @@ void draw() {
 
   circleX=circleX+circleDir;
   circleY=circleY+circleDirY;
+
+  if (player1Y<10) {
+    player1Y=10;
+  }
+  if (player1Y>390) {
+    player1Y=390;
+  }
+   if (player2Y<10) {
+    player2Y=10;
+  }
+  if (player2Y>390) {
+    player2Y=390;
+  }
 
   if (circleX>width+25) {
     circleX=365;
@@ -63,34 +82,22 @@ void draw() {
       circleDir=-circleDir;
     }
   }
-}
-void keyPressed() {
-  if (key == CODED) {
-    if (keyCode == UP) {
-      player2YMove = -6;
-    } else if (keyCode == DOWN) {
-      player2YMove = +6;
-    }
+
+  if (scoreleft>4) {
+    {
+      endgame();
+    };
   }
-  if (key == 'w' || key == 'W' ) {
-    player1YMove = -6;
-  }
-  if (key == 's' || key == 'S' ) {
-    player1YMove = +6;
+  if (scoreright>4) {
+    {
+      endgame2();
+    };
   }
 }
-void keyReleased() {
-  if (key == CODED) {
-    if (keyCode == UP) {
-      player2YMove = 0;
-    } else if (keyCode == DOWN) {
-      player2YMove = 0;
-    }
-  }
-  if (key == 'w' || key == 'W') {
-    player1YMove=0;
-  }
-  if (key == 's' || key == 'S' ) {
-    player1YMove=0;
-  }
-}
+{
+  keyPressed();
+};
+
+{
+  keyReleased();
+};
