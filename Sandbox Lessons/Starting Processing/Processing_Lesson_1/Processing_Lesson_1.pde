@@ -26,6 +26,8 @@ void setup() {
   circleY = 240;
   player1Y = 240;
   player2Y = 240;
+  circleDir = 5;
+  circleDirY = 5;
 }
 
 void draw() {
@@ -37,34 +39,38 @@ void draw() {
   player1Y = player1Y + player1YMove;
   player2Y = player2Y + player2YMove;
 
-  ellipse(circleX, circleY, circleDia,circleDia);
-  rect(player1X, player1Y, 10, 100);
-  rect(player2X, player2Y, 10, 100);
+  ellipse(circleX, circleY, circleDia, circleDia);
+  rect(player1X, player1Y, 10, 200);
+  rect(player2X, player2Y, 10, 200);
 
   circleX=circleX+circleDir;
   circleY=circleY+circleDirY;
 
-  if (player1Y<10) {
-    player1Y=10;
+  if (player1Y<15) {
+    player1Y=15;
   }
-  if (player1Y>390) {
-    player1Y=390;
+  if (player1Y>290) {
+    player1Y=290;
   }
-   if (player2Y<10) {
-    player2Y=10;
+  if (player2Y<15) {
+    player2Y=15;
   }
-  if (player2Y>390) {
-    player2Y=390;
+  if (player2Y>290) {
+    player2Y=290;
   }
 
   if (circleX>width+25) {
+    circleDir=3;
+    circleDirY=5;
     circleX=365;
     circleDir=-circleDir;
     scoreleft=scoreleft+1;
   } 
   if (circleX<-25) {
+    circleDir=3;
+    circleDirY=5;
     circleX=365;
-    circleDir=-circleDir;
+    circleDir=+circleDir;
     scoreright=scoreright+1;
   }
   if (circleY>height-20) {
@@ -74,13 +80,14 @@ void draw() {
     circleDirY=-circleDirY;
   }
 
-  if (circleY>player1Y && circleY<player1Y+100) {
+  if (circleY>player1Y && circleY<player1Y+200) {
     if (circleX<player1X+25) {
       circleDir=-circleDir;
+      circleDir=circleDir+2;
     }
   }
 
-  if (circleY>player2Y && circleY<player2Y+100) {
+  if (circleY>player2Y && circleY<player2Y+200) {
     if (circleX>player2X-15) {
       circleDir=-circleDir;
     }
