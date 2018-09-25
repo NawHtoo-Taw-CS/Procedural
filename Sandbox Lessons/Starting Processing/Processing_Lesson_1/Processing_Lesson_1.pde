@@ -2,6 +2,7 @@
 
 float circleX = 365;
 float circleY = 240;
+float circleDia = 30;
 int circleDir = 3;
 float circleDirY = 5;
 float player1Y = 240;
@@ -16,6 +17,8 @@ int player1YMove;
 int player2YMove;
 
 void setup() {
+  circleDia=0;
+  circleDia=30;
   size(750, 500);
   scoreleft = 0;
   scoreright = 0;
@@ -34,7 +37,7 @@ void draw() {
   player1Y = player1Y + player1YMove;
   player2Y = player2Y + player2YMove;
 
-  ellipse(circleX, circleY, 30, 30);
+  ellipse(circleX, circleY, circleDia,circleDia);
   rect(player1X, player1Y, 10, 100);
   rect(player2X, player2Y, 10, 100);
 
